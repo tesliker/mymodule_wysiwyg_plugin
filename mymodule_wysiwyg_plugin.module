@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Code for custom WYSIWYG Buttons.
+ */
+
+
+/**
+ * Implements hook_wysiwyg_plugin().
+ */
+function _wysiwyg_plugin_wysiwyg_plugin($editor, $version) {
+
+  switch ($editor) {
+    case 'ckeditor':
+      return array(
+        'mymodule_plugin' => array(
+        'path' => drupal_get_path('module', 'mymodule_wysiwyg_plugin') . '/plugins',
+        'buttons' => array(
+          'mymodule_call_to_action' => t('MyModule call to action button'),
+        ),
+        'load' => TRUE,
+      ),
+    );
+    break;
+  }
+}
